@@ -1,0 +1,14 @@
+- content_for(:title) { 'Log In' }
+.access.new
+  %h2 Welcome
+  %p A simulated log in form
+  = form_tag(access_path) do
+    %table{:summary => "login"}
+      %tr
+        %th= label_tag(:username)
+        %td= text_field_tag(:username, params[:username])
+      %tr
+        %th= label_tag(:password)
+        %td= password_field_tag(:password)
+    .form-buttons
+      = submit_tag("Log In")

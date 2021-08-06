@@ -1,0 +1,6 @@
+- content_for(:title) { 'Menu' }
+.access.index
+  %h1 Menu
+  %ul
+    %li= link_to('Manage Subjects', subjects_path)
+    %li= link_to('Manage Pages', pages_path)

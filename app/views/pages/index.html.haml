@@ -1,0 +1,22 @@
+- content_for(:title) { "Pages" }
+
+.pages.index
+  %h2 Pages
+  = link_to("Add New Page", new_page_path, :class => 'action new')
+  %table.listing{:summary => "Page list"}
+    %tr.header
+      %th #
+      %th Subject
+      %th Page
+      %th Visible
+      %th Actions
+    - @pages.each do |page|
+      %tr
+        %td= page.position
+        %td= page.subject.name
+        %td= page.name
+        %td.center= page.visible ? 'Yes' : 'No'
+        %td.actions
+          = link_to("Show", page_path(page), :class => 'action show')
+          = link_to("Edit", edit_page_path(page), :class => 'action edit')
+          = link_to("Delete", delete_page_path(page), :class => 'action delete')

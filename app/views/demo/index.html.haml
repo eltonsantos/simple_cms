@@ -1,0 +1,9 @@
+%h1 This is the home page.
+
+= link_to('All subjects', subjects_path)
+= link_to('All pages', pages_path)
+
+- content_for(:script) do
+  %script
+    alert('Hello!')
+  

@@ -1,0 +1,9 @@
+- content_for(:title) { 'New Subject' }
+
+= link_to("<< Back to List", subjects_path, :class => 'back-link')
+.subjects.new
+  %h2 Create Subject
+  = form_for(@subject) do |f|
+    = render(:partial => 'form', :locals => {:f => f})
+    .form-buttons
+      = f.submit("Create Subject")

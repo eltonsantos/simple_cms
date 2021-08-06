@@ -1,0 +1,9 @@
+- content_for(:title) { "Contact" }
+
+%h1 Contact
+%p We are always happy to hear from our customers.
+%p
+  Phone: #{@phone}
+%p
+  Press: #{mail_to('press@nowhere.com')}
+%p= link_to('About Us', {:action => 'about'})

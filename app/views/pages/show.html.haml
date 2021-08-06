@@ -1,0 +1,30 @@
+- content_for(:title) { "Page: #{@page.name}" }
+
+= link_to("<< Back to List", pages_path, :class => 'back-link')
+.pages.show
+  %h2 Show Page
+  %table{:summary => "Page detail view"}
+    %tr
+      %th Subject Name
+      %td= @page.subject.name
+    %tr
+      %th Name
+      %td= @page.name
+    %tr
+      %th Permalink
+      %td= @page.permalink
+    %tr
+      %th Position
+      %td= @page.position
+    %tr
+      %th Visible?
+      %td= @page.visible ? 'true' : 'false'
+    %tr
+      %th Content
+      %td= @page.content
+    %tr
+      %th Created
+      %td= @page.created_at
+    %tr
+      %th Updated
+      %td= @page.updated_at
