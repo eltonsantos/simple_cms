@@ -1,11 +1,17 @@
 = error_messages_for(f.object)
+
 %table{:summary => "Subject form fields"}
   %tr
     %th Name
     %td= f.text_field(:name)
   %tr
     %th Position
-    %td= f.text_field(:position)
+    - count = Subject.count + (f.object.new_record? ? 1 : 0)
+    %td= f.select(:position, 1..count)
   %tr
     %th Visible
-    %td= f.text_field(:visible)
+    %td
+      = f.radio_button(:visible, '1')
+      Yes
+      = f.radio_button(:visible, '0')
+      No

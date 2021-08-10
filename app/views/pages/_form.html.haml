@@ -2,7 +2,7 @@
 %table{:summary => "Page form fields"}
   %tr
     %th Subject ID
-    %td= f.text_field(:subject_id)
+    %td= f.select(:subject_id, Subject.all.map {|s| [s.name, s.id]})
   %tr
     %th Name
     %td= f.text_field(:name)
@@ -11,10 +11,11 @@
     %td= f.text_field(:permalink)
   %tr
     %th Position
-    %td= f.text_field(:position)
+    - count = Page.count + (f.object.new_record? ? 1 : 0)
+    %td= f.select(:position, 1..count)
   %tr
     %th Visible
-    %td= f.text_field(:visible)
+    %td= f.check_box(:visible)
   %tr
     %th Content
     %td= f.text_area(:content, :rows => 10, :cols => 60)

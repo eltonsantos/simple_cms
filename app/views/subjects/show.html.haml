@@ -1,6 +1,7 @@
 - content_for(:title) { "Subject: #{@subject.name}" }
 
 = link_to("<< Back to List", subjects_path, :class => 'back-link')
+
 .subjects.show
   %h2 Show Subject
   %table{:summary => "Subject detail view"}
@@ -14,8 +15,11 @@
       %th Visible?
       %td= @subject.visible ? 'true' : 'false'
     %tr
+      %th Pages
+      %td= pluralize(@subject.pages.count, 'page')
+    %tr
       %th Created
-      %td= @subject.created_at
+      %td= @subject.created_at.to_s(:long)
     %tr
       %th Updated
-      %td= @subject.updated_at
+      %td= @subject.updated_at.strftime("%m/%d/%Y %I:%M %p")

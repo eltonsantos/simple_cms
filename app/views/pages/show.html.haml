@@ -1,6 +1,7 @@
 - content_for(:title) { "Page: #{@page.name}" }
 
 = link_to("<< Back to List", pages_path, :class => 'back-link')
+
 .pages.show
   %h2 Show Page
   %table{:summary => "Page detail view"}
@@ -21,10 +22,10 @@
       %td= @page.visible ? 'true' : 'false'
     %tr
       %th Content
-      %td= @page.content
+      %td= simple_format(word_wrap(strip_tags(@page.content.to_s)))
     %tr
       %th Created
-      %td= @page.created_at
+      %td= @page.created_at.to_s(:long)
     %tr
       %th Updated
-      %td= @page.updated_at
+      %td= @page.updated_at.to_s(:long)

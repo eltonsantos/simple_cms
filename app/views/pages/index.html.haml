@@ -2,7 +2,9 @@
 
 .pages.index
   %h2 Pages
+
   = link_to("Add New Page", new_page_path, :class => 'action new')
+
   %table.listing{:summary => "Page list"}
     %tr.header
       %th #
@@ -15,7 +17,7 @@
         %td= page.position
         %td= page.subject.name
         %td= page.name
-        %td.center= page.visible ? 'Yes' : 'No'
+        %td.center= status_tag(page.visible)
         %td.actions
           = link_to("Show", page_path(page), :class => 'action show')
           = link_to("Edit", edit_page_path(page), :class => 'action edit')
