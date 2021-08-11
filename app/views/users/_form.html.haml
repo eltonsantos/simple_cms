@@ -1,0 +1,17 @@
+= error_messages_for(f.object)
+
+%table{:summary => "User form fields"}
+  %tr
+    %th First Name
+    %td= f.text_field(:first_name)
+  %tr
+    %th Last Name
+    %td= f.text_field(:last_name)
+  %tr
+    %th Email
+    %td= f.text_field(:email)
+  %tr
+    %th Departments
+    %td
+      - collection = Department.all
+      = f.collection_check_boxes(:department_ids, collection, :id, :name)

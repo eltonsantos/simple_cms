@@ -1,0 +1,10 @@
+- content_for(:title) { "Edit User: #{@user.full_name}" }
+
+= link_to("<< Back to List", users_path, :class => 'back-link')
+
+.users.edit
+  %h2 Update User
+  = form_for(@user) do |f|
+    = render(:partial => 'form', :locals => {:f => f})
+    .form-buttons
+      = f.submit("Update User")

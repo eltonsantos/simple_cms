@@ -1,0 +1,22 @@
+- content_for(:title) { "User: #{@user.full_name}" }
+
+= link_to("<< Back to List", users_path, :class => 'back-link')
+
+.users.show
+  %h2 Show User
+  %table{:summary => "User detail view"}
+    %tr
+      %th First Name
+      %td= @user.first_name
+    %tr
+      %th Last Name
+      %td= @user.last_name
+    %tr
+      %th Email
+      %td= @user.email
+    %tr
+      %th Created
+      %td= @user.created_at.to_s(:long)
+    %tr
+      %th Updated
+      %td= @user.updated_at.to_s(:long)

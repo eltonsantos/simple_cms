@@ -1,0 +1,10 @@
+- content_for(:title) { "New User" }
+
+= link_to("<< Back to List", users_path, :class => 'back-link')
+
+.users.new
+  %h2 Create User
+  = form_for(@user) do |f|
+    = render(:partial => 'form', :locals => {:f => f})
+    .form-buttons
+      = f.submit("Create User")
